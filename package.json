@@ -1,0 +1,22 @@
+{
+  "name": "js_calculator_start_point",
+  "version": "1.0.0",
+  "description": "As a user I want to be able to perform simple arithmetic functions in a web browser.",
+  "scripts": {
+    "webdriver-update": "webdriver-manager update",
+    "webdriver": "webdriver-manager start",
+    "protractor": "protractor conf.js",
+    "test": "mocha tests/unit/calculator_spec.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "express": "^4.14.0",
+    "mocha": "^3.1.2",
+    "protractor": "^4.0.10",
+    "webdriver-manager": "^10.2.7"
+  }
+}
