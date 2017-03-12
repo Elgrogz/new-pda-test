@@ -20,7 +20,12 @@ Calculator.prototype = {
   },
 
   divide: function(number){
-    this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+
+    if (number == 0) {
+      this.runningTotal = "Cannot divide by zero"
+    } else {
+      this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+    }
   },
 
   numberClick: function(number) {
@@ -61,10 +66,7 @@ Calculator.prototype = {
 
     // if the 'equals' button was clicked, clear the previous operator, otherwise
     // record what the previous operator was
-    if ((operator == '=' && this.previousOperator == '/') && this.previousTotal == 0) {
-      this.previousTotal = 'Cannot divide by zero';
-    }
-    else if (operator == '=') {
+    if (operator == '=') {
       this.previousOperator = null;
     } else {
       this.previousOperator = operator;
