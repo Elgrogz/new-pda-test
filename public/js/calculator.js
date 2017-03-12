@@ -61,7 +61,10 @@ Calculator.prototype = {
 
     // if the 'equals' button was clicked, clear the previous operator, otherwise
     // record what the previous operator was
-    if (operator == '=') {
+    if ((operator == '=' && this.previousOperator == '/') && this.previousTotal == 0) {
+      this.previousTotal = 'Cannot divide by zero';
+    }
+    else if (operator == '=') {
       this.previousOperator = null;
     } else {
       this.previousOperator = operator;

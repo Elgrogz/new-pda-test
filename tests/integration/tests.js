@@ -83,4 +83,34 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('0.25');
   });
 
+  it('should be able to have very large numbers', function() {
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number1')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_multiply')).click();
+    element(by.css('#number1')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('1000000000000');
+  });
+
+  it('should not be able to divide by zero', function() {
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number9')).click();
+    element(by.css('#operator_divide')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('Cannot divide by zero');
+  });
+
 });

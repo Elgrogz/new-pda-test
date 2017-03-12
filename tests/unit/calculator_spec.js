@@ -50,9 +50,15 @@ describe('calculator', function () {
   it('can chain multiple operations together', function() {
     calculator.numberClick(2);
     calculator.operatorClick('+');
-    calculator.operatorClick('+');
-    calculator.operatorClick('+');
-    assert.equal(calculator.runningTotal, '8')
+    calculator.numberClick(2);
+    calculator.operatorClick('-');
+    calculator.numberClick(1);
+    calculator.operatorClick('*');
+    calculator.numberClick(2);
+    calculator.operatorClick('/');
+    calculator.numberClick(4);
+    calculator.operatorClick('=');
+    assert.equal(calculator.runningTotal, '1.5')
   });
 
   it('clear the running total without affecting the calculation', function() {
